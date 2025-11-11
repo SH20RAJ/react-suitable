@@ -1,0 +1,183 @@
+{
+  "name": "suitable-vscode",
+  "displayName": "Suitable - React ESLint Auto-fixer",
+  "description": "VS Code extension for Suitable CLI - automatically fix unused imports, variables, and other ESLint issues in React projects",
+  "version": "1.0.0",
+  "publisher": "suitable",
+  "icon": "images/suitable-icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Linters",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "eslint",
+    "react",
+    "typescript",
+    "unused-imports",
+    "code-cleanup",
+    "autofix"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "suitable.fixCurrentFile",
+        "title": "Fix Current File",
+        "category": "Suitable"
+      },
+      {
+        "command": "suitable.fixWorkspace",
+        "title": "Fix Workspace",
+        "category": "Suitable"
+      },
+      {
+        "command": "suitable.fixWorkspaceInteractive",
+        "title": "Fix Workspace (Interactive)",
+        "category": "Suitable"
+      },
+      {
+        "command": "suitable.dryRun",
+        "title": "Dry Run (Preview Changes)",
+        "category": "Suitable"
+      },
+      {
+        "command": "suitable.openSettings",
+        "title": "Open Settings",
+        "category": "Suitable"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname =~ /\\.(js|jsx|ts|tsx)$/",
+          "command": "suitable.fixCurrentFile",
+          "group": "suitable@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceExtname =~ /\\.(js|jsx|ts|tsx)$/",
+          "command": "suitable.fixCurrentFile",
+          "group": "suitable@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "suitable.fixCurrentFile",
+          "when": "editorLangId =~ /(javascript|typescript|javascriptreact|typescriptreact)/"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Suitable",
+      "properties": {
+        "suitable.autoFixOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically fix issues when saving files"
+        },
+        "suitable.enableNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show notifications for fix results"
+        },
+        "suitable.customConfigPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to custom ESLint configuration file"
+        },
+        "suitable.includePatterns": {
+          "type": "array",
+          "default": [
+            "**/*.js",
+            "**/*.jsx",
+            "**/*.ts",
+            "**/*.tsx"
+          ],
+          "description": "File patterns to include when fixing workspace"
+        },
+        "suitable.excludePatterns": {
+          "type": "array",
+          "default": [
+            "node_modules/**",
+            "build/**",
+            "dist/**"
+          ],
+          "description": "File patterns to exclude when fixing workspace"
+        },
+        "suitable.focusAreas": {
+          "type": "array",
+          "default": [
+            "unused-imports",
+            "unused-vars",
+            "formatting"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "unused-imports",
+              "unused-vars",
+              "formatting",
+              "react-hooks",
+              "typescript"
+            ]
+          },
+          "description": "Focus on specific types of issues"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "suitable.fixCurrentFile",
+        "key": "ctrl+shift+alt+f",
+        "mac": "cmd+shift+alt+f",
+        "when": "editorTextFocus && resourceExtname =~ /\\.(js|jsx|ts|tsx)$/"
+      },
+      {
+        "command": "suitable.fixWorkspace",
+        "key": "ctrl+shift+alt+w",
+        "mac": "cmd+shift+alt+w"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@types/vscode": "^1.105.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.4",
+    "@vscode/vsce": "^2.32.0",
+    "eslint": "^8.47.0",
+    "typescript": "^5.9.3"
+  },
+  "author": "Sh Raj",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sh20raj/react-suitable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sh20raj/react-suitable/issues"
+  }
+}

@@ -225,7 +225,42 @@ your-react-project/
 └── .eslintrc.js (created if not exists)
 ```
 
-## 🔍 Examples
+## 🔧 IDE Integration
+
+### VS Code Extension
+
+Get the official Suitable VS Code extension for seamless integration:
+
+```bash
+# Navigate to extension directory
+cd react-suitable-vscode
+
+# Install dependencies and compile
+npm install && npm run compile
+
+# Development mode (opens Extension Development Host)
+# Press F5 in VS Code or use "Run > Start Debugging"
+```
+
+**Extension Features:**
+- **Fix Current File**: `Ctrl+Shift+Alt+F` (Mac: `Cmd+Shift+Alt+F`)
+- **Fix Workspace**: `Ctrl+Shift+Alt+W` (Mac: `Cmd+Shift+Alt+W`)  
+- **Interactive Mode**: Guided configuration and execution
+- **Dry Run**: Preview changes before applying
+- **Auto-fix on Save**: Optional automatic fixing when saving files
+- **Context Menu Integration**: Right-click options for supported files
+- **Output Panel**: Detailed logging in "Suitable" output channel
+
+Configure via VS Code Settings:
+```json
+{
+  "suitable.autoFixOnSave": false,
+  "suitable.enableNotifications": true,
+  "suitable.includePatterns": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "suitable.excludePatterns": ["node_modules/**", "build/**", "dist/**"]
+}
+```
+
 
 ### Fix a Create React App project
 
@@ -286,7 +321,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🎯 Roadmap
 
-- [ ] VS Code extension
+- [x] **VS Code extension** - Official VS Code extension for seamless editor integration
 - [ ] Git hook integration
 - [ ] CI/CD pipeline integration
 - [ ] More framework support (Vue, Angular)
