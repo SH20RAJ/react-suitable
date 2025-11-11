@@ -5,6 +5,7 @@ A powerful CLI tool that automatically fixes common ESLint issues in React proje
 [![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fsh20raj%2Freact-suitable%2F&countColor=%23263759&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fsh20raj%2Freact-suitable%2F)
 [![npm version](https://badge.fury.io/js/react-suitable.svg)](https://badge.fury.io/js/react-suitable)
 [![Downloads](https://img.shields.io/npm/dm/react-suitable.svg)](https://www.npmjs.com/package/react-suitable)
+[![GitHub stars](https://img.shields.io/github/stars/sh20raj/react-suitable?style=social)](https://github.com/sh20raj/react-suitable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
