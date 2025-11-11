@@ -31,7 +31,7 @@ npx suitable
 # Fix issues in current directory
 suitable
 
-# Fix issues in specific directory  
+# Fix issues in specific directory
 suitable ./src
 
 # Interactive mode with menu
@@ -55,7 +55,7 @@ cd my-react-app
 # See what issues can be fixed (dry run)
 npx suitable --dry-run
 
-# Fix all auto-fixable issues  
+# Fix all auto-fixable issues
 npx suitable
 
 # Use interactive mode for customization
@@ -64,14 +64,14 @@ npx suitable --interactive
 
 ## 📋 Command Line Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--interactive, -i` | Run in interactive mode with menu | `false` |
-| `--dry-run` | Show what would be fixed without making changes | `false` |
-| `--config <path>` | Path to custom ESLint configuration file | Auto-detect |
-| `--include <patterns>` | File patterns to include (comma-separated) | `**/*.{js,jsx,ts,tsx}` |
-| `--exclude <patterns>` | File patterns to exclude (comma-separated) | `node_modules/**,build/**,dist/**` |
-| `--fix, -f` | Automatically fix issues | `true` |
+| Option                 | Description                                     | Default                            |
+| ---------------------- | ----------------------------------------------- | ---------------------------------- |
+| `--interactive, -i`    | Run in interactive mode with menu               | `false`                            |
+| `--dry-run`            | Show what would be fixed without making changes | `false`                            |
+| `--config <path>`      | Path to custom ESLint configuration file        | Auto-detect                        |
+| `--include <patterns>` | File patterns to include (comma-separated)      | `**/*.{js,jsx,ts,tsx}`             |
+| `--exclude <patterns>` | File patterns to exclude (comma-separated)      | `node_modules/**,build/**,dist/**` |
+| `--fix, -f`            | Automatically fix issues                        | `true`                             |
 
 ## 🎮 Interactive Mode
 
@@ -93,12 +93,13 @@ The interactive mode will:
 ## 🔧 What Gets Fixed
 
 ### Unused Imports
+
 ```javascript
 // Before
-import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import _ from 'lodash';
+import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import _ from "lodash";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
@@ -106,7 +107,7 @@ function MyComponent() {
 }
 
 // After
-import { useState } from 'react';
+import { useState } from "react";
 
 function MyComponent() {
   const [count, setCount] = useState(0);
@@ -115,32 +116,34 @@ function MyComponent() {
 ```
 
 ### Unused Variables
+
 ```javascript
 // Before
 function processData(items, config, options) {
   const result = [];
-  const temp = 'unused';
-  
-  items.forEach(item => {
+  const temp = "unused";
+
+  items.forEach((item) => {
     result.push(item.name);
   });
-  
+
   return result;
 }
 
 // After
 function processData(items) {
   const result = [];
-  
-  items.forEach(item => {
+
+  items.forEach((item) => {
     result.push(item.name);
   });
-  
+
   return result;
 }
 ```
 
 ### Code Formatting
+
 - Removes trailing spaces
 - Fixes indentation
 - Adds missing semicolons
@@ -148,6 +151,7 @@ function processData(items) {
 - Fixes object/array spacing
 
 ### React-Specific Issues
+
 - Removes unused React imports (React 17+)
 - Fixes React Hooks rules violations
 - Optimizes JSX prop usage
@@ -164,12 +168,12 @@ Suitable comes with sensible defaults optimized for React projects:
   // Focus on unused code removal
   'unused-imports/no-unused-imports': 'error',
   'unused-imports/no-unused-vars': 'error',
-  
+
   // React optimizations
   'react/react-in-jsx-scope': 'off', // React 17+
   'react-hooks/rules-of-hooks': 'error',
   'react-hooks/exhaustive-deps': 'warn',
-  
+
   // Auto-fixable formatting
   'no-trailing-spaces': 'error',
   'semi': 'error',
@@ -191,11 +195,11 @@ Or create a project-specific config that extends Suitable's defaults:
 ```javascript
 // .eslintrc.js
 module.exports = {
-  extends: ['suitable/react'], // Use Suitable's React preset
+  extends: ["suitable/react"], // Use Suitable's React preset
   rules: {
     // Your custom rules
-    'no-console': 'warn'
-  }
+    "no-console": "warn",
+  },
 };
 ```
 
@@ -218,23 +222,27 @@ your-react-project/
 ## 🔍 Examples
 
 ### Fix a Create React App project
+
 ```bash
 cd my-cra-app
 suitable
 ```
 
 ### Fix a Next.js project with TypeScript
+
 ```bash
 cd my-nextjs-app
 suitable --interactive  # Will detect Next.js and suggest appropriate config
 ```
 
 ### Fix specific directories only
+
 ```bash
 suitable --include "src/**/*.{ts,tsx}" --exclude "src/**/*.test.ts"
 ```
 
 ### See what would be fixed without making changes
+
 ```bash
 suitable --dry-run
 ```
@@ -266,9 +274,9 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🙋‍♀️ Support
 
-- 🐛 [Report bugs](https://github.com/yourusername/suitable/issues)
-- 💡 [Request features](https://github.com/yourusername/suitable/issues)
-- 📚 [Documentation](https://github.com/yourusername/suitable/wiki)
+- 🐛 [Report bugs](https://github.com/sh20raj/react-suitable/issues)
+- 💡 [Request features](https://github.com/sh20raj/react-suitable/issues)
+- 📚 [Documentation](https://github.com/sh20raj/react-suitable/wiki)
 
 ## 🎯 Roadmap
 
